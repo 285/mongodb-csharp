@@ -21,7 +21,7 @@ namespace MongoDB.Configuration.CollectionAdapters
         public object CreateCollection(Type elementType, object[] elements)
         {
             var closedListType = OpenListType.MakeGenericType(elementType);
-            var typedElements = ValueConverter.ConvertArray(elements, elementType);
+            var typedElements = ValueConverter.ConvertArray(elements ?? new object[] { }, elementType);
             return Activator.CreateInstance(closedListType, typedElements);
         }
 
