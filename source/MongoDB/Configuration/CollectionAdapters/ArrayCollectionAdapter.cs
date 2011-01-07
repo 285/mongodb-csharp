@@ -17,7 +17,7 @@ namespace MongoDB.Configuration.CollectionAdapters
         /// <returns></returns>
         public object CreateCollection(Type elementType, object[] elements)
         {
-            return ValueConverter.ConvertArray(elements, elementType);
+            return ValueConverter.ConvertArray(elements ?? new object[] { }, elementType);
         }
 
         /// <summary>
